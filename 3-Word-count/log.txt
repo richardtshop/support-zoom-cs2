@@ -1,0 +1,51 @@
+// pressing enter straight away
+main.cpp -o main && "/Users/.../"main
+Enter words separated by spaces: 
+You must enter at least one word.
+
+// single word
+main.cpp -o main && "/Users/.../"main
+Enter words separated by spaces: hello
+Total words: 1
+Longest word length: 5
+Largest number of vowels in a single word: 2
+
+//  many words
+main.cpp -o main && "/Users/.../"main
+Enter words separated by spaces: hello my friend
+Total words: 3
+Longest word length: 6
+Largest number of vowels in a single word: 2
+
+// user entering a single space
+main.cpp -o main && "/Users/.../"main
+Enter words separated by spaces:  
+You must enter at least one word.
+
+// input ends with a space
+main.cpp -o main && "/Users/.../"main
+Enter words separated by spaces: hello 
+Total words: 1
+Longest word length: 5
+Largest number of vowels in a single word: 2
+
+// multiple spaces between words
+main.cpp -o main && "/Users/.../"main
+Enter words separated by spaces: hello  my friend
+Total words: 3
+Longest word length: 6
+Largest number of vowels in a single word: 2
+
+// user enters punctuation (!,.?)
+main.cpp -o main && "/Users/.../"main
+Enter words separated by spaces: hello my friend!
+Total words: 3
+Longest word length: 6
+Largest number of vowels in a single word: 2
+
+// Input begins with a space
+main.cpp -o main && "/Users/.../"main
+Enter words separated by spaces:  hello
+Total words: 1
+Longest word length: 5
+Largest number of vowels in a single word: 2
