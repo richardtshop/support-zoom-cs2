@@ -5,8 +5,9 @@ using namespace std;
 
 int main() {
     int row = 1;
-    int midRow = 5;
     int columns = 19;
+    int midRow = 5; // calculate the relationship between the midrow and the and the columns
+
     bool reverse = false;
     while (row >= 1 && row <= midRow) {
         for (int hashNum = 1; hashNum <= columns; hashNum++) {
@@ -31,3 +32,7 @@ int main() {
     }
     return 0;
 }
+
+// hashnum == change variable name
+// comment
+// extract the calculations in the for loop and make it more obvious
