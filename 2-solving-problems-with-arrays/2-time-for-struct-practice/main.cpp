@@ -21,7 +21,7 @@ void twentyFourHourTime(myTime &currentTime) {
 }
 
 void timeLeftToday(myTime currentTime) {
-    // convert current hour to 24 hour time
+    // convert current hour to 24 hour time so all hour values can be subtracted from 24 to get the remaining hours in the day
     twentyFourHourTime(currentTime);
     // variables to modify the hours and minutes remaining
     // if the current time has minute or second values greater than 0, then we need to adjust the next component of the time so we are subtracting the correct amount of time
