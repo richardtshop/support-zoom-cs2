@@ -2,7 +2,7 @@
 using namespace std;
 
 // Question 2
-/* Removing the check for NULL pointer causes an error, as the print statement is printing out the value at the address
+/* Removing the check for NULL pointer causes a segmentation fault error, as the print statement is printing out the value at the address
 the pointer is pointing to, and as the pointer has NUll instead of a memory address value, it's not possible to 
 read any variable as there is no address.
 */
