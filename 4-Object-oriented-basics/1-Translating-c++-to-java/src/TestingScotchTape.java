@@ -1,6 +1,6 @@
 public class TestingScotchTape {
 
-  public static void printTapeArray(ScotchTape tapeArray[], int length) {
+  public static void printTapeArray(ScotchTape[] tapeArray, int length) {
     for (int i = 0; i < length; i++) {
       System.out.println(tapeArray[i].colour + " (" + tapeArray[i].length + "cm,  " + tapeArray[i].weight + " oz)");
     }
