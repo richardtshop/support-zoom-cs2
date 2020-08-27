@@ -35,7 +35,7 @@ song **songsFromYear(song **songs, int size, int year, int *resultSize) {
     }
 
     // declare songArrayFromYear using the resultSize int
-    song **songArrayFromYear = new song *[4];
+    song **songArrayFromYear = new song *[*resultSize];
     int newSongIndex = 0;              // initialise the current index to insert the new songs in the new array
     for (int i = 0; i < size; i++) {   // loop through the original array
         if (songs[i]->year == year) {  // if the year matches the passed year, then add the song to the new array at the current index
