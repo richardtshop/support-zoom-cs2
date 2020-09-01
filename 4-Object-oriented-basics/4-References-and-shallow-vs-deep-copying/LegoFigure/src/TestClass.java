@@ -4,7 +4,7 @@ public class TestClass {
 
     // testing LegoHat class
     LegoHat sunVisor = new LegoHat("sun-visor", 10);
-    LegoHat toque = new LegoHat("sun-visor", 10);
+    LegoHat toque = new LegoHat("toque", 10);
     LegoHat cowboy = new LegoHat("cowboy", 10);
 
     System.out.println(sunVisor.toString()); // a size 10 sun-visor hat
