@@ -41,6 +41,4 @@ public class ListNode {
     public static void printNumNodes() {
         System.out.println(totalNodes + " have been created so far.");
     }
-
-    ////
 }

@@ -88,7 +88,6 @@ public class Bookcase {
             currBook.addBookToBeginning(currBook.getNext().getNext());
             bookToReturn = bookToRemove;
             _itemCount--;
-
           } else {
             bookToReturn = bookNotFound;
           }
