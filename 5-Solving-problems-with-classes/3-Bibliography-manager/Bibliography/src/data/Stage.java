@@ -2,12 +2,16 @@ package data;
 
 import java.util.ArrayList;
 
+import java.util.function.BiConsumer;
+import java.util.Scanner;
+
 public class Stage {
   private String _id;
   private String _text;
   private String _inputText;
   private boolean _terminal;
   private ArrayList<Choice> _choices;
+  private BiConsumer<ArrayList<Journal>, Integer> _methodToRun;
 
   public Stage(String id) {
     this(id, "");
@@ -17,16 +21,30 @@ public class Stage {
     this(id, text, null, false);
   }
 
+  public Stage(String id, String text, BiConsumer<ArrayList<Journal>, Integer> methodToRun) {
+    this(id, text, null, false, methodToRun);
+  }
+
   public Stage(String id, String text, String inputText) {
     this(id, text, inputText, false);
   }
 
+  public Stage(String id, String text, String inputText, BiConsumer<ArrayList<Journal>, Integer> methodToRun) {
+    this(id, text, inputText, false, methodToRun);
+  }
+
   public Stage(String id, String text, String inputText, boolean terminal) {
+    this(id, text, inputText, false, null);
+  }
+
+  public Stage(String id, String text, String inputText, boolean terminal,
+      BiConsumer<ArrayList<Journal>, Integer> methodToRun) {
     _id = id;
     _text = text;
     _inputText = inputText;
     _choices = new ArrayList<Choice>();
     _terminal = terminal;
+    _methodToRun = methodToRun;
   }
 
   // We only want to be able to directly get the ID and text of a stage,
@@ -47,6 +65,10 @@ public class Stage {
 
   public boolean getTerminal() {
     return _terminal;
+  }
+
+  public BiConsumer<ArrayList<Journal>, Integer> getMethodToRun() {
+    return _methodToRun;
   }
 
   public void setText(String text) {

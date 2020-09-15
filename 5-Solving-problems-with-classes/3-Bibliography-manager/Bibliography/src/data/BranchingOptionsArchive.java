@@ -11,6 +11,7 @@ package data;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.function.BiConsumer;
 
 public class BranchingOptionsArchive {
 
@@ -67,7 +68,7 @@ public class BranchingOptionsArchive {
     // once a user has input a choice, chec k if
     Stage s = currentStage.getNthNextStage(choiceIndex);
     if (s != null) {
-      // currentStage = s;
+      currentStage = s;
       return true;
     } else {
       return false;
@@ -75,22 +76,21 @@ public class BranchingOptionsArchive {
   }
 
   public void runChoiceMethod(String currStageID, int methodIndex, ArrayList<Journal> journalList, Scanner userInput) {
-    System.out.println(getCurrentStage().getNthNextStage(methodIndex).getText());
+    // System.out.println(getCurrentStage().getNthNextStage(methodIndex).getText());
     switch (currStageID) {
       case "Main":
         switch (methodIndex) {
-          // TODO all inputs should be in the UI
           case 0:
-            printArticlesByYear(journalList, userInput);
+            // printArticlesByYear(journalList, userInput);
             break;
           case 1:
-            addArticleToIssue(journalList, methodIndex);
+            // addArticleToIssue(journalList, methodIndex);
             // get all issues
             // print them out
             break;
           case 2:
             // Loop through all articles and create ArrayList that contains author names
-            printMostCommonAuthor(journalList);
+            // printMostCommonAuthor(journalList);
             break;
           case 3:
             // exit
@@ -106,9 +106,8 @@ public class BranchingOptionsArchive {
   }
 
   // Print articles based from a user inputted year
-  public void printArticlesByYear(ArrayList<Journal> journalList, Scanner userInput) {
-    int year = userInput.nextInt();
-
+  public static void printArticlesByYear(ArrayList<Journal> journalList, Integer userInput) {
+    int year = userInput;
     boolean issueFound = false;
     for (Journal journal : journalList) {
       for (Issue issue : journal.getIssues()) {
@@ -123,16 +122,11 @@ public class BranchingOptionsArchive {
     }
     if (!issueFound) {
       System.out.println("No articles found for " + year + ".\nPlease try another year.");
-      // re-run function
-      printArticlesByYear(journalList, userInput);
     }
   }
 
-  public void addArticleToIssue() {
-  }
-
   // Prints all available issues and returns issues
-  public ArrayList<Issue> getAvailableIssues(ArrayList<Journal> journals, int methodIndex) {
+  public static ArrayList<Issue> getAvailableIssues(ArrayList<Journal> journals, int methodIndex) {
     ArrayList<Issue> issues = new ArrayList<Issue>();
     // populate arrayList with issues
     for (Journal journal : journals) {
@@ -152,7 +146,7 @@ public class BranchingOptionsArchive {
   ////
   // add articles to an issue
   // TODO a lot of this needs to be moved to the UI
-  public void addArticleToIssue(ArrayList<Journal> journals, int methodIndex) {
+  public static void addArticleToIssue(ArrayList<Journal> journals, int methodIndex) {
     ArrayList<Issue> allIssues = getAvailableIssues(journals, methodIndex);
     System.out.println("What issue would you like to add to?");
     ////
@@ -178,7 +172,7 @@ public class BranchingOptionsArchive {
 
   ////
   // Method to print the most common author
-  public void printMostCommonAuthor(ArrayList<Journal> journals) {
+  public static void printMostCommonAuthor(ArrayList<Journal> journals, Integer userInput) {
     ArrayList<String> authors = new ArrayList<String>();
     // Loop through each journal and create ArrayList ofg all authors
     for (Journal journal : journals) {
@@ -214,13 +208,27 @@ public class BranchingOptionsArchive {
   // A static helper method that returns an example story that we can use
   // for testing
   public static BranchingOptionsArchive getArchiveOptions() {
+
+    BiConsumer<ArrayList<Journal>, Integer> stage2Method = (ArrayList<Journal> journalList, Integer userInput) -> {
+      printArticlesByYear(journalList, userInput);
+    };
+
+    BiConsumer<ArrayList<Journal>, Integer> stage3Method = (ArrayList<Journal> journalList, Integer userInput) -> {
+      addArticleToIssue(journalList, userInput);
+    };
+
+    BiConsumer<ArrayList<Journal>, Integer> stage4Method = (ArrayList<Journal> journalList, Integer userInput) -> {
+      printMostCommonAuthor(journalList, userInput);
+    };
+
     Stage Stage1 = new Stage("Main", "You may perform the following operations:",
         "Please enter your choice (1,2,3,4):");
 
     // Stages to indicate choices that run methods - no subsequent stages
-    Stage Stage2 = new Stage("ChooseYear", "What year are you interested in?");
-    Stage Stage3 = new Stage("ChooseIssue", "Here are the available issues", "What issue would you like to add to?");
-    Stage Stage4 = new Stage("FindAuthor", "The most published author is:");
+    Stage Stage2 = new Stage("ChooseYear", "What year are you interested in?", stage2Method);
+    Stage Stage3 = new Stage("ChooseIssue", "Here are the available issues", "What issue would you like to add to?",
+        stage3Method);
+    Stage Stage4 = new Stage("FindAuthor", "The most published author is:", stage4Method);
     Stage Stage5 = new Stage("Exit", "Bye!\n");
 
     ///////////////////////////////////////////////////////////////

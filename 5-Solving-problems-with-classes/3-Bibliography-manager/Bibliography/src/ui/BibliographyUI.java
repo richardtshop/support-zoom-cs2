@@ -1,6 +1,5 @@
 package ui;
 
-import data.BibliographyDatabase;
 import data.BranchingOptionsArchive;
 import data.Journal;
 
@@ -27,6 +26,7 @@ public class BibliographyUI {
         _archive.stop();
       } else {
         System.out.println(_archive.getCurrentStage().getText() + "\n");
+
         // Choices: display the options
         for (int i = 0; i < _archive.getCurrentStage().getNumChoices(); i++) {
           System.out.println((i + 1) + ". " + _archive.getCurrentStage().getNthChoiceText(i));
@@ -36,13 +36,19 @@ public class BibliographyUI {
         }
         // Get the user's choice
         Scanner input = new Scanner(System.in);
-        int choiceIndex = input.nextInt() - 1; // subtract for zero indexing
+        int userInt = input.nextInt();
+        int choiceIndex = userInt - 1; // subtract for zero indexing
 
         // run methods to return data for each choice
+
+        if (_archive.getCurrentStage().getMethodToRun() != null) {
+          _archive.getCurrentStage().getMethodToRun().accept(_journalList, userInt);
+        }
+
         if (_archive.validChoice(choiceIndex)) {
-          input = new Scanner(System.in);
-          String currStageID = _archive.getCurrentStage().getID();
-          _archive.runChoiceMethod(currStageID, choiceIndex, _journalList, input);
+          // input = new Scanner(System.in);
+          // String currStageID = _archive.getCurrentStage().getID();
+          // _archive.runChoiceMethod(currStageID, choiceIndex, _journalList, input);
         } else {
           System.out.println("Sorry, that is not a valid choice.");
         }

@@ -1,5 +1,9 @@
 package data;
 
+import java.util.function.BiConsumer;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Choice {
   private String _text;
   private Stage _nextStage;
