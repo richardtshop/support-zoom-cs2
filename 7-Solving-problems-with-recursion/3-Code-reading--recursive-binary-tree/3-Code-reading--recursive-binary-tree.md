@@ -5,7 +5,7 @@ We saw how Think Like a Programmer approached recursive solutions to binary tree
 One special difference between the branching story graph and the binary tree used here is that we don't use node classes to represent the tree, but rather define a binary tree recursively in terms of itself. The left and right children, when they exist, are actually references to entire trees.
 
 1. Draw a diagram of the binary tree created in the testing class. Be sure to label the nodes with the letter provided in the constructor.
-
+![](https://github.com/richardtshop/support-zoom-cs2/blob/master/7-Solving-problems-with-recursion/3-Code-reading--recursive-binary-tree/BinaryTree.png) 
 2. Explain in English how the height() method works. Be sure to illustrate your understanding of recursion in your explanation.
    The height recursive method first checks the base case to see if the base node has no left nor right children. If not then it returns 1, which is the height of tree.
 
