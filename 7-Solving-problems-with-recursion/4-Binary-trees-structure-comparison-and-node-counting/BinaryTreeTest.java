@@ -67,20 +67,15 @@ public class BinaryTreeTest {
                 System.out.println("The tree's height is: " + root1.height());
                 System.out.println("The tree's leaves are: " + root1.leafData());
 
-                System.out.println(
-                                "Tree comparison results comparing trees 1 and 2: " + root1.hasSameContentsAs(root2)); // true
-                System.out.println(
-                                "Tree comparison results comparing trees 1 and 3: " + root1.hasSameContentsAs(root3)); // false
-                System.out.println(
-                                "Tree comparison results comparing trees 1 and 4: " + root1.hasSameContentsAs(root4)); // false
-                System.out.println(
-                                "Tree comparison results comparing trees 2 and 3: " + root2.hasSameContentsAs(root3)); // false
-                System.out.println(
-                                "Tree comparison results comparing trees 5 and 4: " + root5.hasSameContentsAs(root4)); // true
-                System.out.println(
-                                "Tree comparison results comparing trees 5 and 6: " + root5.hasSameContentsAs(root6)); // false
+                String comparisonText = "Tree comparison results comparing trees  ";
 
-                                
+                System.out.println(comparisonText + "1 and 2: " + root1.hasSameContentsAs(root2)); // true
+                System.out.println(comparisonText + "1 and 3: " + root1.hasSameContentsAs(root3)); // false
+                System.out.println(comparisonText + "1 and 4: " + root1.hasSameContentsAs(root4)); // false
+                System.out.println(comparisonText + "2 and 3: " + root2.hasSameContentsAs(root3)); // false
+                System.out.println(comparisonText + "5 and 4: " + root5.hasSameContentsAs(root4)); // true
+                System.out.println(comparisonText + "5 and 6: " + root5.hasSameContentsAs(root6)); // false
+
                 System.out.println("Tree 1 has " + root1.numberOfNodes() + " nodes"); // 21
                 System.out.println("Tree 2 has " + root2.numberOfNodes() + " nodes"); // 21
                 System.out.println("Tree 3 has " + root3.numberOfNodes() + " nodes"); // 19

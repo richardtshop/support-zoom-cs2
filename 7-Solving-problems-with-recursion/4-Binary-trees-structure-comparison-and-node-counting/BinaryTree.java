@@ -88,14 +88,7 @@ public class BinaryTree {
         return result;
     }
 
-    // helper method to determine if a node is a leaf
-    public boolean isLeafNode(BinaryTree left, BinaryTree right) {
-        if ((left == null) && (right == null)) {
-            return true;
-        }
-        return false;
-    }
-
+    // compare to trees to see if they have the same structure AND data
     public boolean hasSameContentsAs(BinaryTree tree) {
         // If comparison tree is empty return false
         if (tree == null) {
@@ -111,6 +104,10 @@ public class BinaryTree {
         if (data != tree.getData()) {
             return false;
         }
+
+        // For the recursive call, if any call fails in comparison checks, false is
+        // returned back through the each recusrive call and will return false for the
+        // initial non-recursive call
 
         // If either child nodes on this tree is null, the matching child node on the
         // compared tree must be null
@@ -144,5 +141,13 @@ public class BinaryTree {
         } else {
             return 1 + leftChild.numberOfNodes() + rightChild.numberOfNodes();
         }
+    }
+
+    // helper method to determine if a node is a leaf
+    public boolean isLeafNode(BinaryTree left, BinaryTree right) {
+        if ((left == null) && (right == null)) {
+            return true;
+        }
+        return false;
     }
 }
