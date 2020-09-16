@@ -80,6 +80,7 @@ public class BinaryTreeTest {
                 System.out.println(
                                 "Tree comparison results comparing trees 5 and 6: " + root5.hasSameContentsAs(root6)); // false
 
+                                
                 System.out.println("Tree 1 has " + root1.numberOfNodes() + " nodes"); // 21
                 System.out.println("Tree 2 has " + root2.numberOfNodes() + " nodes"); // 21
                 System.out.println("Tree 3 has " + root3.numberOfNodes() + " nodes"); // 19
