@@ -13,9 +13,9 @@ public class TestingBooks {
     Book book11 = new Book("Book 11", "Doug", 76555347);
     Book book12 = new Book("Book 12", "Bort", 1609245905);
 
-    // System.out.println(book1.getTitle());
-    // System.out.println(book1.getAuthor());
-    // System.out.println(book1.getISBN());
+    System.out.println(book1.getTitle()); // Once upon a time in Ottawa
+    System.out.println(book1.getAuthor());// John McGee
+    System.out.println(book1.getISBN()); // 12536434
 
     Bookcase testBookcase = new Bookcase("Bookcase");
     Reader testReader = new Reader("Hugh");
