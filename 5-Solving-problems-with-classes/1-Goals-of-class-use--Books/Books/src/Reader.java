@@ -1,15 +1,12 @@
 public class Reader {
   private String _name;
   private Book _book;
-  private int _shelfIndex;
 
   public Reader(String name) {
     _name = name;
     _book = null;
-    _shelfIndex = -1;
   }
 
-  ////
   // getters
   public String getName() {
     return _name;
@@ -19,23 +16,15 @@ public class Reader {
     return _book;
   }
 
-  public int getShelfIndex() {
-    return _shelfIndex;
-  }
-  ////
-  // setters
-
   // otherMethods
-
-  public void getBook(Book book, Bookcase bookcase, int shelf) {
+  public void getBook(Book book, Bookcase bookcase) {
     if (getCurrentBook() == null) {
-      Book bookToCheck = bookcase.removeBookFromShelf(book, shelf);
+      Book bookToCheck = bookcase.removeBookFromShelf(book);
 
       if (bookToCheck.getISBN() == -1) {
         System.out.println("Book cannot be found");
       } else {
         _book = bookToCheck;
-        _shelfIndex = shelf;
       }
     } else {
       System.out.println("You cannot have more than one book at a time");
@@ -44,14 +33,24 @@ public class Reader {
   }
 
   // return book to previous shelf
-  public void returnBookToShelf(Bookcase bookcase) {
-    returnBookToShelf(bookcase, getShelfIndex());
+  public void returnBook(Bookcase bookcase) {
+    if (getCurrentBook() != null) {
+      boolean bookReturned = bookcase.returnBookToShelf(getCurrentBook());
+      if (bookReturned) {
+        _book = null;
+      } else {
+        System.out.println("Bookshelf is full");
+      }
+    } else {
+      System.out.println("You don't have a book to return");
+      System.out.println("-------------------");
+    }
   }
 
   // return book to specific shelf
-  public void returnBookToShelf(Bookcase bookcase, int shelf) {
+  public void returnBook(Bookcase bookcase, int shelf) {
     if (getCurrentBook() != null) {
-      boolean bookReturned = bookcase.addBookToShelf(getCurrentBook(), shelf);
+      boolean bookReturned = bookcase.returnBookToShelf(getCurrentBook(), shelf);
       if (bookReturned) {
         _book = null;
       }
