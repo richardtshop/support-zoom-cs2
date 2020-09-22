@@ -162,7 +162,7 @@ public class OutfitGen {
       problems.add("That hat doesn't go with your outerwear");
     }
 
-    // If outerwear is shorts, need to check if a winter coat is being worn
+    // If pants is shorts, need to check if a winter coat is being worn
     if (pants instanceof Shorts && (outer.isWinterClothing() || shoes.isWinterClothing())) {
       problems.add("Pick a season, you can't wear shorts and winter clothes");
     }

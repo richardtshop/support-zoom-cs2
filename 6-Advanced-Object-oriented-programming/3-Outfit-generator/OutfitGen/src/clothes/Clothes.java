@@ -1,6 +1,6 @@
 package clothes;
 
-public class Clothes {
+public abstract class Clothes {
   private String _name;
   private String _color;
   private String _material;

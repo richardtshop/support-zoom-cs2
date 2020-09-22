@@ -24,7 +24,7 @@ public class WinterCoat extends Outerwear {
 
   // compatibility methods
   public boolean isWinterClothing() {
-    return false;
+    return true;
   }
 
   public boolean goodWithShorts() {
