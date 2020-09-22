@@ -30,7 +30,7 @@
     }
     // last step is 1
     firstStep = 1;
-    // initialise the total
+    // declare the total
     allButFirstStep;
 
     // below ensures the total distance is always an integer, either halving an even number, or decrementing one to make it even in the recursion call
@@ -41,7 +41,7 @@
       allButFirstStep = achillesSteps(distance - 1);
     }
 
-    return lastStep + allButFirstStep; // which is the total of all steps
+    return firstStep + allButFirstStep; // which is the total of all steps
   }
 ```
 
