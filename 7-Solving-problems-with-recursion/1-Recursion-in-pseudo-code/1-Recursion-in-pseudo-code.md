@@ -44,3 +44,38 @@
     return lastStep + allButFirstStep; // which is the total of all steps
   }
 ```
+
+Achilles code in java with test and outputs:
+
+```java
+
+import java.util.ArrayList;
+
+public class Recursion {
+  public static int achillesSteps(int distance) {
+    if (distance == 1) {
+      return 1;
+    }
+    int firstStep = 1;
+    int allButFirstStep;
+    if (distance % 2 == 0) {
+      allButFirstStep = achillesSteps(distance / 2);
+    } else {
+      allButFirstStep = achillesSteps(distance - 1);
+    }
+    return firstStep + allButFirstStep;
+  }
+
+  public static void main(String[] args) {
+    // achilles
+    System.out.println(achillesSteps(1)); // 1
+    System.out.println(achillesSteps(2)); // 2
+    System.out.println(achillesSteps(4)); // 3
+    System.out.println(achillesSteps(5)); // 4
+    System.out.println(achillesSteps(10)); // 5
+    System.out.println(achillesSteps(7)); // 5
+    System.out.println(achillesSteps(70)); // 9
+  }
+}
+
+```
